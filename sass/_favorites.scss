@@ -1,0 +1,74 @@
+section {
+  grid-column: 2;
+  grid-row: 1;
+
+  margin-top: 7rem;
+  margin-bottom: 7rem;
+}
+
+.favorites {
+  margin-bottom: 1rem;
+
+  &__restaurant {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    column-gap: 0.5rem;
+    background-color: $color-grey-light-1;
+    border-style: solid none solid none;
+    border-width: 1px;
+    border-color: rgba($color-grey-dark-1, 0.25);
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: $color-grey-dark-1;
+    }
+
+    &:active {
+      background-color: none;
+    }
+
+    &--img {
+      img {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        display: block;
+      }
+    }
+
+    &--content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      h3 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  &__krayv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      height: 3rem;
+      width: 3rem;
+      margin-top: 0.5rem;
+      fill: $color-grey-dark-1;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      margin-top: 0.5rem;
+    }
+  }
+}

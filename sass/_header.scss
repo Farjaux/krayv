@@ -1,0 +1,62 @@
+.header {
+  display: grid;
+  grid-template-columns: 1fr minmax(5rem, 60rem) 1fr;
+
+  height: 6rem;
+  z-index: 101;
+  width: 100%;
+
+  position: fixed;
+  top: 0;
+  background-color: $color-grey-light-2;
+}
+
+.nav {
+  background-color: $color-grey-light-1;
+  box-shadow: 0 0.8rem 1.5rem -1rem $color-secondary-0;
+  border-style: none none solid none;
+  border-width: 1px;
+  border-color: rgba($color-grey-dark-1, 0.25);
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__logo {
+    font: inherit;
+    margin-left: 1.25rem;
+    font-size: 3rem;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    height: 100%;
+  }
+
+  &__btn {
+    height: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.75rem 1.25rem;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    svg {
+      height: 3rem;
+      width: 3rem;
+      fill: $color-grey-dark-1;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: $color-secondary-1;
+    }
+  }
+}

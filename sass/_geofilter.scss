@@ -1,0 +1,25 @@
+.geofilter {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 80%;
+  width: 95%;
+  transform: translate(-50%, -50%);
+  z-index: 86;
+
+  padding: 0.5rem;
+  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.45);
+  background-color: $color-grey-light-1;
+  border-radius: 6px;
+  transition: all 0.5s;
+
+  font-family: inherit;
+  font-weight: 700;
+  color: $color-grey-dark-1;
+  font-size: 2rem;
+}
+
+#map {
+  height: 100%;
+  width: auto;
+}

@@ -1,0 +1,51 @@
+.bottomnav {
+  display: grid;
+  grid-template-columns: 1fr minmax(5rem, 60rem) 1fr;
+
+  height: 6rem;
+  z-index: 100;
+  width: 100%;
+
+  position: fixed;
+  bottom: 0;
+  background-color: $color-grey-light-2;
+
+  &__list {
+    background: $linear-gradient;
+    box-shadow: 0 0.8rem 4rem -1rem $color-grey-dark-1;
+    border-style: solid none none none;
+    border-width: 1px;
+    border-color: rgba($color-grey-dark-1, 0.25);
+
+    grid-column: 2;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &__btn {
+    height: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 1rem 3rem;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    svg {
+      height: 3rem;
+      width: 3rem;
+      fill: $color-grey-dark-1;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: $color-secondary-1;
+    }
+  }
+}

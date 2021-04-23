@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css" />
+    <script src="node_modules/leaflet/dist/leaflet.js"></script>
+
+    <script defer src="script.js"></script>
+
+    <title>krayv</title>
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="nav">
+            <h1 class="nav__logo">krayv</h1>
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="html/favorites.html" class="nav__btn nav__btn--favorites">
+                        <svg class="nav__icon">
+                            <use href="/img/icons.svg#icon-star-full"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="html/profile.html" class="nav__btn nav__btn--profile">
+                        <svg class="nav__icon">
+                            <use href="/img/icons.svg#icon-user"></use>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="overlay hidden"></div>
+
+    <main class="feed">
+        <section class="post">
+            <article class="post__container">
+                <a href="html/restaurant.html"><img src="/img/food-image-1.png" alt="Plate 1" class="post__img"></a>
+                <div class="post__content">
+                    <div class="post__content--text">
+                        <h3><strong>Plate Name</strong></h3><span>Information about the food which should be less than
+                            90 characters long with spaces added!</span>
+                    </div>
+                    <button class="post__content--krayv">
+                        <svg>
+                            <use href="/img/icons.svg#icon-pacman"></use>
+                        </svg>
+                        <span><strong>24</strong></span>
+                    </button>
+                </div>
+            </article>
+            <article class="post__container">
+                <a href="html/restaurant.html"><img src="/img/food-image-2.png" alt="Plate 2" class="post__img"></a>
+                <div class="post__content">
+                    <div class="post__content--text">
+                        <h3><strong>Plate Name</strong></h3><span>Information about the food which should be less than
+                            90 characters long with spaces added!</span>
+                    </div>
+                    <button class="post__content--krayv">
+                        <svg>
+                            <use href="/img/icons.svg#icon-pacman"></use>
+                        </svg>
+                        <span><strong>24</strong></span>
+                    </button>
+                </div>
+            </article>
+            <article class="post__container">
+                <a href="html/restaurant.html"><img src="/img/food-image-3.png" alt="Plate 3" class="post__img"></a>
+                <div class="post__content">
+                    <div class="post__content--text">
+                        <h3><strong>Plate Name</strong></h3><span>Information about the food which should be less than
+                            90 characters long with spaces added!</span>
+                    </div>
+                    <button class="post__content--krayv">
+                        <svg>
+                            <use href="/img/icons.svg#icon-pacman"></use>
+                        </svg>
+                        <span><strong>24</strong></span>
+                    </button>
+                </div>
+            </article>
+        </section>
+
+    </main>
+
+    <div class="bottomnav">
+        <ul class="bottomnav__list">
+            <li class="bottomnav__item">
+                <a href="#" class="bottomnav__btn bottomnav__btn--home">
+                    <svg class="bottomnav__icon">
+                        <use href="/img/icons.svg#icon-home3"></use>
+                    </svg>
+                </a>
+            </li>
+            <li class="bottomnav__item">
+                <button class="bottomnav__btn bottomnav__btn--filter">
+                    <svg class="bottomnav__icon">
+                        <use href="/img/icons.svg#icon-filter"></use>
+                    </svg>
+                </button>
+            </li>
+            <li class="bottomnav__item">
+                <button class="bottomnav__btn bottomnav__btn--map">
+                    <svg class="bottomnav__icon">
+                        <use href="/img/icons.svg#icon-map"></use>
+                    </svg>
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ////////// GEO FILTER ////////////// -->
+    <div class="geofilter hidden">
+        <div id="map"></div>
+    </div>
+
+    <!-- ////////// FILTERS ////////////// -->
+    <div class="filters hidden">
+        <button class="btn--close-modal">&times;</button>
+        <div class="meal">
+            <label><input class="checkbox" type="checkbox" id="breakfast"><span>Breakfast</span></label>
+            <label><input class="checkbox" type="checkbox" id="brunch"><span>Brunch</span></label>
+            <label><input class="checkbox" type="checkbox" id="lunch"><span>Lunch</span></label>
+            <label><input class="checkbox" type="checkbox" id="dinner"><span>Dinner</span></label>
+        </div>
+        <div class="price">
+            <label><input class="checkbox" type="checkbox" id="pric1"><span>&dollar;</span></label>
+            <label><input class="checkbox" type="checkbox" id="pric2"><span>&dollar;&dollar;</span></label>
+            <label><input class="checkbox" type="checkbox" id="pric3"><span>&dollar;&dollar;&dollar;</span></label>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

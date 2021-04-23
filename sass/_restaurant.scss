@@ -1,0 +1,108 @@
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+.restaurant {
+  grid-column: 2;
+  grid-row: 1;
+
+  margin-top: 7rem;
+  margin-bottom: 7rem;
+
+  display: grid;
+  grid-template-rows: minmax(10rem, 20rem) repeat(3, max-content);
+  row-gap: 0.5rem;
+
+  &__main {
+    background-image: url(/img/food-image-1.png);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+
+    border-style: solid none none none;
+    border-width: 1px;
+    border-color: rgba($color-grey-dark-1, 0.25);
+  }
+
+  &__description {
+    // background-color: blueviolet;
+    display: grid;
+    grid-template-columns: 3fr min-content;
+    border-style: none none solid none;
+    border-width: 1px;
+    border-color: rgba($color-grey-dark-1, 0.25);
+    padding-left: 0.5rem;
+
+    &--fav {
+      .btn__fav {
+        font-family: inherit;
+        height: 100%;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.75rem 1rem;
+        // transition: all 0.3s;
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        &:focus {
+          outline: none;
+        }
+
+        &--icon {
+          height: 3rem;
+          width: 3rem;
+          fill: $color-grey-dark-1;
+        }
+      }
+    }
+  }
+
+  &__info {
+    background-color: lightcoral;
+    display: grid;
+    grid-template-rows: repeat(5, min-content);
+    row-gap: 0.5rem;
+    padding: 0.5rem;
+
+    svg {
+      height: 2.25rem;
+      width: 2.25rem;
+      fill: $color-grey-dark-1;
+      margin-right: 0.5rem;
+    }
+
+    &--location {
+      display: flex;
+      align-items: center;
+    }
+    &--phone {
+      display: flex;
+      align-items: center;
+    }
+    &--website {
+      display: flex;
+      align-items: center;
+    }
+    &--delivery {
+      display: flex;
+      align-items: center;
+    }
+    &--hours {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__images {
+    background-color: lightseagreen;
+  }
+}
