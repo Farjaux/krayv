@@ -128,7 +128,7 @@ input {
 .bottomnav {
   display: grid;
   grid-template-columns: 1fr minmax(5rem, 60rem) 1fr;
-  height: 4.25rem;
+  height: 4.75rem;
   z-index: 101;
   width: 100%;
   position: fixed;
@@ -169,8 +169,8 @@ input {
   grid-row: 1; }
 
 .post {
-  margin-top: 5.25rem;
-  margin-bottom: 5.25rem; }
+  margin-top: 5.75rem;
+  margin-bottom: 5.75rem; }
   .post__container {
     margin-bottom: 3rem; }
   .post__img {
@@ -226,7 +226,7 @@ input {
 .header {
   display: grid;
   grid-template-columns: 1fr minmax(5rem, 60rem) 1fr;
-  height: 4.25rem;
+  height: 4.75rem;
   z-index: 102;
   width: 100%;
   position: fixed;
