@@ -7,8 +7,8 @@
 }
 
 .post {
-  margin-top: 7rem;
-  margin-bottom: 7rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 
   &__container {
     margin-bottom: 3rem;
@@ -36,6 +36,15 @@
       flex-direction: column;
       justify-content: center;
       padding: 0.25rem 0.5rem;
+
+      a {
+        text-decoration: none;
+
+        &:visited,
+        &:active {
+          color: inherit;
+        }
+      }
 
       h3 {
         font-size: 1.4rem;

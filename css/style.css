@@ -128,7 +128,7 @@ input {
 .bottomnav {
   display: grid;
   grid-template-columns: 1fr minmax(5rem, 60rem) 1fr;
-  height: 6rem;
+  height: 4rem;
   z-index: 100;
   width: 100%;
   position: fixed;
@@ -155,8 +155,8 @@ input {
     flex-direction: column;
     justify-content: center; }
     .bottomnav__btn svg {
-      height: 3rem;
-      width: 3rem;
+      height: 2rem;
+      width: 2rem;
       fill: #474646; }
     .bottomnav__btn:focus {
       outline: none; }
@@ -169,8 +169,8 @@ input {
   grid-row: 1; }
 
 .post {
-  margin-top: 7rem;
-  margin-bottom: 7rem; }
+  margin-top: 5rem;
+  margin-bottom: 5rem; }
   .post__container {
     margin-bottom: 3rem; }
   .post__img {
@@ -192,6 +192,10 @@ input {
       flex-direction: column;
       justify-content: center;
       padding: 0.25rem 0.5rem; }
+      .post__content--text a {
+        text-decoration: none; }
+        .post__content--text a:visited, .post__content--text a:active {
+          color: inherit; }
       .post__content--text h3 {
         font-size: 1.4rem;
         text-transform: uppercase; }
@@ -222,7 +226,7 @@ input {
 .header {
   display: grid;
   grid-template-columns: 1fr minmax(5rem, 60rem) 1fr;
-  height: 6rem;
+  height: 4rem;
   z-index: 101;
   width: 100%;
   position: fixed;
@@ -242,7 +246,7 @@ input {
   .nav__logo {
     font: inherit;
     margin-left: 1.25rem;
-    font-size: 3rem; }
+    font-size: 2rem; }
   .nav__list {
     list-style: none;
     display: flex;
@@ -258,8 +262,8 @@ input {
     flex-direction: column;
     justify-content: center; }
     .nav__btn svg {
-      height: 3rem;
-      width: 3rem;
+      height: 2rem;
+      width: 2rem;
       fill: #474646; }
     .nav__btn:focus {
       outline: none; }
@@ -269,8 +273,8 @@ input {
 section {
   grid-column: 2;
   grid-row: 1;
-  margin-top: 7rem;
-  margin-bottom: 7rem; }
+  margin-top: 5rem;
+  margin-bottom: 5rem; }
 
 .favorites {
   margin-bottom: 1rem; }
@@ -327,8 +331,8 @@ p {
 .restaurant {
   grid-column: 2;
   grid-row: 1;
-  margin-top: 7rem;
-  margin-bottom: 7rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
   display: grid;
   grid-template-rows: minmax(10rem, 20rem) repeat(3, max-content);
   row-gap: 0.5rem; }

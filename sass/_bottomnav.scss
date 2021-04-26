@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr minmax(5rem, 60rem) 1fr;
 
-  height: 6rem;
+  height: 4rem;
   z-index: 100;
   width: 100%;
 
@@ -35,8 +35,8 @@
     justify-content: center;
 
     svg {
-      height: 3rem;
-      width: 3rem;
+      height: 2rem;
+      width: 2rem;
       fill: $color-grey-dark-1;
     }
 
