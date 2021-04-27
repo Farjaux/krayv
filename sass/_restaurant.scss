@@ -10,6 +10,18 @@ p {
   font-size: 1.5rem;
 }
 
+a {
+  text-decoration: none;
+  color: $color-secondary-3;
+}
+
+svg {
+  height: 2rem;
+  width: 2rem;
+  fill: $color-grey-dark-1;
+  margin-right: 0.75rem;
+}
+
 .restaurant {
   grid-column: 2;
   grid-row: 1;
@@ -18,16 +30,16 @@ p {
   margin-bottom: 5rem;
 
   display: grid;
-  grid-template-rows: minmax(10rem, 20rem) repeat(3, max-content);
+  grid-template-rows: minmax(10rem, 20rem) repeat(4, max-content);
   row-gap: 0.5rem;
 
   &__main {
-    background-image: url(/img/food-image-1.png);
+    // background-image: url(/img/food-image-1.png);
     background-position: center;
     background-size: cover;
     position: relative;
 
-    border-style: solid none none none;
+    border-style: solid none;
     border-width: 1px;
     border-color: rgba($color-grey-dark-1, 0.25);
   }
@@ -36,9 +48,7 @@ p {
     // background-color: blueviolet;
     display: grid;
     grid-template-columns: 3fr min-content;
-    border-style: none none solid none;
-    border-width: 1px;
-    border-color: rgba($color-grey-dark-1, 0.25);
+    border-bottom: 1px solid rgba($color-grey-dark-1, 0.25);
     padding-left: 0.5rem;
 
     &--fav {
@@ -57,9 +67,10 @@ p {
           outline: none;
         }
 
-        &--icon {
-          height: 3rem;
-          width: 3rem;
+        svg {
+          margin: 0;
+          height: 2.5rem;
+          width: 2.5rem;
           fill: $color-grey-dark-1;
         }
       }
@@ -67,18 +78,10 @@ p {
   }
 
   &__info {
-    background-color: lightcoral;
     display: grid;
-    grid-template-rows: repeat(5, min-content);
-    row-gap: 0.5rem;
+    grid-template-rows: repeat(4, min-content);
+    row-gap: 1rem;
     padding: 0.5rem;
-
-    svg {
-      height: 2.25rem;
-      width: 2.25rem;
-      fill: $color-grey-dark-1;
-      margin-right: 0.5rem;
-    }
 
     &--location {
       display: flex;
@@ -95,14 +98,82 @@ p {
     &--delivery {
       display: flex;
       align-items: center;
+
+      a {
+        margin-right: 1.25rem;
+      }
     }
-    &--hours {
+  }
+
+  &__hours {
+    display: grid;
+    grid-template-columns: min-content 2fr 1fr;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    border-bottom: 1px solid rgba($color-grey-dark-1, 0.25);
+    color: $color-secondary-3;
+
+    &--btn {
       display: flex;
+      justify-content: flex-end;
       align-items: center;
+
+      height: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      svg {
+        margin: 0;
+        height: 1.75rem;
+        width: 1.75rem;
+      }
+    }
+
+    &--time {
+      display: none;
+      grid-column: 1 / -1;
+      font-size: 1.3rem;
+      color: $color-grey-dark-1;
+
+      ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        list-style-type: none;
+        margin-top: 0.5rem;
+      }
     }
   }
 
   &__images {
-    background-color: lightseagreen;
+    margin-top: 2rem;
+    &--btn {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      height: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      svg {
+        margin: 0;
+        height: 1.75rem;
+        width: 1.75rem;
+      }
+    }
+    &--breakfast,
+    &--brunch,
+    &--lunch,
+    &--dinner {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 0.5rem;
+      border-style: solid none;
+      border-width: 1px;
+      border-color: rgba($color-grey-dark-1, 0.25);
+    }
   }
 }

@@ -13,9 +13,7 @@
   &__list {
     background: $linear-gradient;
     box-shadow: 0 0.8rem 4rem -1rem $color-grey-dark-1;
-    border-style: solid none none none;
-    border-width: 1px;
-    border-color: rgba($color-grey-dark-1, 0.25);
+    border-top: 1px solid rgba($color-grey-dark-1, 0.25);
 
     grid-column: 2;
     list-style: none;
@@ -38,10 +36,6 @@
       height: 2.25rem;
       width: 2.25rem;
       fill: $color-grey-dark-1;
-    }
-
-    &:focus {
-      outline: none;
     }
 
     &:active {

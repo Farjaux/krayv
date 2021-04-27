@@ -29,7 +29,7 @@
     </header>
 
     <section class="restaurant">
-        <div class="restaurant__main">
+        <div class="restaurant__main" style="background-image: url(/img/food-image-1.png);">
             &nbsp;
         </div>
         <div class="restaurant__description">
@@ -53,42 +53,107 @@
                 <svg>
                     <use href="/img/icons.svg#icon-location"></use>
                 </svg>
-                <h4>Location</h4>
+                <a href="#">
+                    <h4>41354 Jefferson St Boise, ID 83864</h4>
+                </a>
             </div>
             <div class="restaurant__info--phone">
                 <svg>
                     <use href="/img/icons.svg#icon-mobile"></use>
                 </svg>
-                <h4>Phone #</h4>
+                <a href="tel:3179790634">
+                    <h4>317-979-0634</h4>
+                </a>
             </div>
             <div class="restaurant__info--website">
                 <svg>
                     <use href="/img/icons.svg#icon-sphere"></use>
                 </svg>
-                <h4>Website</h4>
+                <a href="#">
+                    <h4>www.website.com</h4>
+                </a>
             </div>
             <div class="restaurant__info--delivery">
                 <svg>
                     <use href="/img/icons.svg#icon-rocket"></use>
                 </svg>
-                <h4>Delivery</h4>
+                <a href="#">
+                    <h4>Uber Eats</h4>
+                </a>
+                <a href="#">
+                    <h4>DoorDash</h4>
+                </a>
+                <a href="#">
+                    <h4>Grubhub</h4>
+                </a>
+                <a href="#">
+                    <h4>Postmates</h4>
+                </a>
+
             </div>
-            <div class="restaurant__info--hours">
+        </div>
+        <div class="restaurant__hours">
+            <svg>
+                <use href="/img/icons.svg#icon-clock2"></use>
+            </svg>
+            <h4>Hours</h4>
+            <button class="restaurant__hours--btn">
                 <svg>
-                    <use href="/img/icons.svg#icon-clock2"></use>
+                    <use href="/img/icons.svg#icon-circle-down"></use>
                 </svg>
-                <h4>Hours</h4>
+            </button>
+            <div class="restaurant__hours--time">
+                <ul>
+                    <div class="restaurant__hours--time-1">
+                        <li>Monday: 12am - 12pm</li>
+                        <li>Tuesday: 12am - 12pm</li>
+                        <li>Wednesday: 12am - 12pm</li>
+                        <li>Thursday: 12am - 12pm</li>
+                    </div>
+                    <div class="restaurant__hours--time-2">
+                        <li>Friday: 12am - 12pm</li>
+                        <li>Saturday: 12am - 12pm</li>
+                        <li>Sunday: 12am - 12pm</li>
+                    </div>
+                </ul>
             </div>
         </div>
 
         <div class="restaurant__images">
-            <h4>Breakfast</h4>
-            <h4>Brunch</h4>
-            <h4>Lunch</h4>
-            <h4>Dinner</h4>
+            <div class="restaurant__images--breakfast">
+                <h4>Breakfast</h4>
+                <button class="restaurant__images--btn">
+                    <svg>
+                        <use href="/img/icons.svg#icon-circle-down"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="restaurant__images--brunch">
+                <h4>Brunch</h4>
+                <button class="restaurant__images--btn">
+                    <svg>
+                        <use href="/img/icons.svg#icon-circle-down"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="restaurant__images--lunch">
+                <h4>Lunch</h4>
+                <button class="restaurant__images--btn">
+                    <svg>
+                        <use href="/img/icons.svg#icon-circle-down"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="restaurant__images--dinner">
+                <h4>Dinner</h4>
+                <button class="restaurant__images--btn">
+                    <svg>
+                        <use href="/img/icons.svg#icon-circle-down"></use>
+                    </svg>
+                </button>
+            </div>
         </div>
     </section>
-
 </body>
 
 </html>

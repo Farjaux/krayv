@@ -14,9 +14,7 @@
 .nav {
   background-color: $color-grey-light-1;
   box-shadow: 0 0.8rem 1.5rem -1rem $color-secondary-0;
-  border-style: none none solid none;
-  border-width: 1px;
-  border-color: rgba($color-grey-dark-1, 0.25);
+  border-bottom: 1px solid rgba($color-grey-dark-1, 0.25);
   grid-column: 2;
   display: flex;
   align-items: center;

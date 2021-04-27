@@ -137,9 +137,7 @@ input {
   .bottomnav__list {
     background: linear-gradient(to bottom right, #f6840f 0%, #ffb66c 100%);
     box-shadow: 0 0.8rem 4rem -1rem #474646;
-    border-style: solid none none none;
-    border-width: 1px;
-    border-color: rgba(71, 70, 70, 0.25);
+    border-top: 1px solid rgba(71, 70, 70, 0.25);
     grid-column: 2;
     list-style: none;
     display: flex;
@@ -158,8 +156,6 @@ input {
       height: 2.25rem;
       width: 2.25rem;
       fill: #474646; }
-    .bottomnav__btn:focus {
-      outline: none; }
     .bottomnav__btn:active {
       background-color: #4eafac; }
 
@@ -236,9 +232,7 @@ input {
 .nav {
   background-color: #f9f7f6;
   box-shadow: 0 0.8rem 1.5rem -1rem #0e918c;
-  border-style: none none solid none;
-  border-width: 1px;
-  border-color: rgba(71, 70, 70, 0.25);
+  border-bottom: 1px solid rgba(71, 70, 70, 0.25);
   grid-column: 2;
   display: flex;
   align-items: center;
@@ -328,28 +322,35 @@ h4 {
 p {
   font-size: 1.5rem; }
 
+a {
+  text-decoration: none;
+  color: #04736f; }
+
+svg {
+  height: 2rem;
+  width: 2rem;
+  fill: #474646;
+  margin-right: 0.75rem; }
+
 .restaurant {
   grid-column: 2;
   grid-row: 1;
   margin-top: 5rem;
   margin-bottom: 5rem;
   display: grid;
-  grid-template-rows: minmax(10rem, 20rem) repeat(3, max-content);
+  grid-template-rows: minmax(10rem, 20rem) repeat(4, max-content);
   row-gap: 0.5rem; }
   .restaurant__main {
-    background-image: url(/img/food-image-1.png);
     background-position: center;
     background-size: cover;
     position: relative;
-    border-style: solid none none none;
+    border-style: solid none;
     border-width: 1px;
     border-color: rgba(71, 70, 70, 0.25); }
   .restaurant__description {
     display: grid;
     grid-template-columns: 3fr min-content;
-    border-style: none none solid none;
-    border-width: 1px;
-    border-color: rgba(71, 70, 70, 0.25);
+    border-bottom: 1px solid rgba(71, 70, 70, 0.25);
     padding-left: 0.5rem; }
     .restaurant__description--fav .btn__fav {
       font-family: inherit;
@@ -360,21 +361,16 @@ p {
       padding: 0.75rem 1rem; }
       .restaurant__description--fav .btn__fav:focus {
         outline: none; }
-      .restaurant__description--fav .btn__fav--icon {
-        height: 3rem;
-        width: 3rem;
+      .restaurant__description--fav .btn__fav svg {
+        margin: 0;
+        height: 2.5rem;
+        width: 2.5rem;
         fill: #474646; }
   .restaurant__info {
-    background-color: lightcoral;
     display: grid;
-    grid-template-rows: repeat(5, min-content);
-    row-gap: 0.5rem;
+    grid-template-rows: repeat(4, min-content);
+    row-gap: 1rem;
     padding: 0.5rem; }
-    .restaurant__info svg {
-      height: 2.25rem;
-      width: 2.25rem;
-      fill: #474646;
-      margin-right: 0.5rem; }
     .restaurant__info--location {
       display: flex;
       align-items: center; }
@@ -387,8 +383,56 @@ p {
     .restaurant__info--delivery {
       display: flex;
       align-items: center; }
-    .restaurant__info--hours {
+      .restaurant__info--delivery a {
+        margin-right: 1.25rem; }
+  .restaurant__hours {
+    display: grid;
+    grid-template-columns: min-content 2fr 1fr;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    border-bottom: 1px solid rgba(71, 70, 70, 0.25);
+    color: #04736f; }
+    .restaurant__hours--btn {
       display: flex;
-      align-items: center; }
+      justify-content: flex-end;
+      align-items: center;
+      height: 100%;
+      background: none;
+      border: none;
+      cursor: pointer; }
+      .restaurant__hours--btn svg {
+        margin: 0;
+        height: 1.75rem;
+        width: 1.75rem; }
+    .restaurant__hours--time {
+      display: none;
+      grid-column: 1 / -1;
+      font-size: 1.3rem;
+      color: #474646; }
+      .restaurant__hours--time ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        list-style-type: none;
+        margin-top: 0.5rem; }
   .restaurant__images {
-    background-color: lightseagreen; }
+    margin-top: 2rem; }
+    .restaurant__images--btn {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      height: 100%;
+      background: none;
+      border: none;
+      cursor: pointer; }
+      .restaurant__images--btn svg {
+        margin: 0;
+        height: 1.75rem;
+        width: 1.75rem; }
+    .restaurant__images--breakfast, .restaurant__images--brunch, .restaurant__images--lunch, .restaurant__images--dinner {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 0.5rem;
+      border-style: solid none;
+      border-width: 1px;
+      border-color: rgba(71, 70, 70, 0.25); }
