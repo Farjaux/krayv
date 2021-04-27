@@ -359,8 +359,6 @@ section {
       border: none;
       cursor: pointer;
       padding: 0.75rem 1rem; }
-      .restaurant__description--fav .btn__fav:focus {
-        outline: none; }
       .restaurant__description--fav .btn__fav svg {
         margin: 0;
         height: 2.5rem;
@@ -404,7 +402,8 @@ section {
       .restaurant__hours--btn svg {
         margin: 0;
         height: 1.75rem;
-        width: 1.75rem; }
+        width: 1.75rem;
+        fill: #f6840f; }
     .restaurant__hours--time {
       display: none;
       grid-column: 1 / -1;
@@ -431,7 +430,8 @@ section {
       .restaurant__images--btn svg {
         margin: 0;
         height: 1.75rem;
-        width: 1.75rem; }
+        width: 1.75rem;
+        fill: #f6840f; }
     .restaurant__images--breakfast, .restaurant__images--brunch, .restaurant__images--lunch, .restaurant__images--dinner {
       display: grid;
       grid-template-columns: min-content 1fr;
