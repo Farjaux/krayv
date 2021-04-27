@@ -67,7 +67,9 @@
       svg {
         height: 2.25rem;
         width: 2.25rem;
-        fill: $color-grey-dark-1;
+        fill: none;
+        stroke: $color-grey-dark-1;
+        stroke-width: 2px;
       }
 
       span {

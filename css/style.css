@@ -209,7 +209,9 @@ input {
       .post__content--krayv svg {
         height: 2.25rem;
         width: 2.25rem;
-        fill: #474646; }
+        fill: none;
+        stroke: #474646;
+        stroke-width: 2px; }
       .post__content--krayv span {
         font-size: 1.4rem;
         margin-top: 1rem;
@@ -267,8 +269,8 @@ input {
 section {
   grid-column: 2;
   grid-row: 1;
-  margin-top: 5rem;
-  margin-bottom: 5rem; }
+  margin-top: 5.75rem;
+  margin-bottom: 5.75rem; }
 
 .favorites {
   margin-bottom: 1rem; }
@@ -305,41 +307,39 @@ section {
     align-items: center;
     justify-content: center; }
     .favorites__krayv svg {
-      height: 3rem;
-      width: 3rem;
+      height: 2.5rem;
+      width: 2.5rem;
       margin-top: 0.5rem;
       fill: #474646; }
     .favorites__krayv h3 {
       font-size: 1.4rem;
       margin-top: 0.5rem; }
 
-h3 {
-  font-size: 2rem; }
-
-h4 {
-  font-size: 1.25rem; }
-
-p {
-  font-size: 1.5rem; }
-
-a {
-  text-decoration: none;
-  color: #04736f; }
-
-svg {
-  height: 2rem;
-  width: 2rem;
-  fill: #474646;
-  margin-right: 0.75rem; }
-
 .restaurant {
   grid-column: 2;
   grid-row: 1;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: 5.75rem;
+  margin-bottom: 5.75rem;
   display: grid;
   grid-template-rows: minmax(10rem, 20rem) repeat(4, max-content);
   row-gap: 0.5rem; }
+  .restaurant h3 {
+    font-size: 2rem; }
+  .restaurant h4 {
+    font-size: 1.25rem; }
+  .restaurant p {
+    font-size: 1.5rem; }
+  .restaurant a {
+    text-decoration: none;
+    color: #04736f;
+    -webkit-tap-highlight-color: rgba(242, 239, 238, 0.5); }
+  .restaurant svg {
+    height: 2rem;
+    width: 2rem;
+    fill: #474646;
+    margin-right: 0.75rem; }
+  .restaurant button {
+    -webkit-tap-highlight-color: rgba(242, 239, 238, 0.5); }
   .restaurant__main {
     background-position: center;
     background-size: cover;
@@ -365,7 +365,9 @@ svg {
         margin: 0;
         height: 2.5rem;
         width: 2.5rem;
-        fill: #474646; }
+        fill: none;
+        stroke: #474646;
+        stroke-width: 1px; }
   .restaurant__info {
     display: grid;
     grid-template-rows: repeat(4, min-content);
@@ -387,7 +389,7 @@ svg {
         margin-right: 1.25rem; }
   .restaurant__hours {
     display: grid;
-    grid-template-columns: min-content 2fr 1fr;
+    grid-template-columns: min-content min-content 1fr;
     padding: 0 0.5rem 0.5rem 0.5rem;
     border-bottom: 1px solid rgba(71, 70, 70, 0.25);
     color: #04736f; }
@@ -396,7 +398,7 @@ svg {
       justify-content: flex-end;
       align-items: center;
       height: 100%;
-      background: none;
+      background-color: none;
       border: none;
       cursor: pointer; }
       .restaurant__hours--btn svg {
@@ -416,6 +418,8 @@ svg {
         margin-top: 0.5rem; }
   .restaurant__images {
     margin-top: 2rem; }
+    .restaurant__images h4 {
+      margin-left: 0.5rem; }
     .restaurant__images--btn {
       display: flex;
       justify-content: flex-end;
@@ -430,7 +434,7 @@ svg {
         width: 1.75rem; }
     .restaurant__images--breakfast, .restaurant__images--brunch, .restaurant__images--lunch, .restaurant__images--dinner {
       display: grid;
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: min-content 1fr;
       margin-bottom: 0.5rem;
       padding: 0.5rem 0.5rem;
       border-style: solid none;
