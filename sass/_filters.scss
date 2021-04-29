@@ -18,73 +18,65 @@
 
   display: grid;
   grid-template-rows: 3fr 1fr;
-}
 
-.btn--close-modal {
-  background-color: $color-primary-0;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  height: 3rem;
-  width: 3rem;
+  // .btn--close-modal {
+  //   background-color: $color-primary-0;
+  //   position: absolute;
+  //   top: 1rem;
+  //   right: 1rem;
+  //   height: 3rem;
+  //   width: 3rem;
 
-  font-family: inherit;
-  font-weight: 700;
-  color: $color-grey-dark-1;
-  font-size: 2rem;
-  cursor: pointer;
-  border: none;
-  border-radius: 50%;
-  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.5);
-  transition: all 0.3s;
+  //   font-family: inherit;
+  //   font-weight: 700;
+  //   color: $color-grey-dark-1;
+  //   font-size: 2rem;
+  //   cursor: pointer;
+  //   border: none;
+  //   border-radius: 50%;
+  //   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.5);
+  //   transition: all 0.3s;
+  // }
 
-  &:focus {
-    outline: none;
+  .meal {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
-  &:checked {
-    background-color: $color-primary-4;
+  .price {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
   }
-}
 
-.meal {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-}
+  label {
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 2rem;
+    cursor: pointer;
+    margin: 1rem;
+    border-radius: 6px;
+    transition: all 0.3s;
 
-.price {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-label {
-  font-family: inherit;
-  font-weight: 700;
-  font-size: 2rem;
-  cursor: pointer;
-  margin: 1rem;
-  border-radius: 6px;
-  transition: all 0.3s;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  span {
     display: flex;
-    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+
+    span {
+      display: flex;
+      align-self: center;
+    }
+
+    &:hover {
+      background-color: rgba($color-primary-0, 0.2);
+    }
+
+    &:active {
+      background-color: rgba($color-primary-0, 0.8);
+    }
   }
 
-  &:hover {
-    background-color: rgba($color-primary-0, 0.2);
+  input {
+    display: none;
   }
-
-  &:active {
-    background-color: rgba($color-primary-0, 0.8);
-  }
-}
-
-input {
-  display: none;
 }

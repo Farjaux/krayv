@@ -11,6 +11,10 @@ html {
   box-sizing: border-box;
   font-size: 62.5%; }
 
+a,
+button {
+  -webkit-tap-highlight-color: rgba(242, 239, 238, 0.5); }
+
 body {
   font-family: "Lato", sans-serif;
   line-height: 1.6;
@@ -50,58 +54,33 @@ body {
   transition: all 0.5s;
   display: grid;
   grid-template-rows: 3fr 1fr; }
-
-.btn--close-modal {
-  background-color: #f6840f;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  height: 3rem;
-  width: 3rem;
-  font-family: inherit;
-  font-weight: 700;
-  color: #474646;
-  font-size: 2rem;
-  cursor: pointer;
-  border: none;
-  border-radius: 50%;
-  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.5);
-  transition: all 0.3s; }
-  .btn--close-modal:focus {
-    outline: none; }
-  .btn--close-modal:checked {
-    background-color: #994d00; }
-
-.meal {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr; }
-
-.price {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); }
-
-label {
-  font-family: inherit;
-  font-weight: 700;
-  font-size: 2rem;
-  cursor: pointer;
-  margin: 1rem;
-  border-radius: 6px;
-  transition: all 0.3s;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; }
-  label span {
+  .filters .meal {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; }
+  .filters .price {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); }
+  .filters label {
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 2rem;
+    cursor: pointer;
+    margin: 1rem;
+    border-radius: 6px;
+    transition: all 0.3s;
     display: flex;
-    align-self: center; }
-  label:hover {
-    background-color: rgba(246, 132, 15, 0.2); }
-  label:active {
-    background-color: rgba(246, 132, 15, 0.8); }
-
-input {
-  display: none; }
+    flex-direction: column;
+    justify-content: center; }
+    .filters label span {
+      display: flex;
+      align-self: center; }
+    .filters label:hover {
+      background-color: rgba(246, 132, 15, 0.2); }
+    .filters label:active {
+      background-color: rgba(246, 132, 15, 0.8); }
+  .filters input {
+    display: none; }
 
 .geofilter {
   position: fixed;
@@ -123,7 +102,8 @@ input {
 
 #map {
   height: 100%;
-  width: auto; }
+  width: auto;
+  z-index: 89; }
 
 .bottomnav {
   display: grid;
@@ -163,63 +143,60 @@ input {
   background-color: #f2efee;
   grid-column: 2;
   grid-row: 1; }
-
-.post {
-  margin-top: 5.75rem;
-  margin-bottom: 5.75rem; }
-  .post__container {
-    margin-bottom: 3rem; }
-  .post__img {
-    max-width: 100%;
-    max-height: 100%;
-    position: relative;
-    overflow: hidden;
-    display: block;
-    z-index: 5; }
-  .post__content {
-    display: flex;
-    justify-content: space-between;
-    background-color: #f9f7f6;
-    border-style: none solid solid solid;
-    border-width: 1px;
-    border-color: rgba(71, 70, 70, 0.25); }
-    .post__content--text {
+  .feed .post {
+    margin-top: 5.75rem;
+    margin-bottom: 5.75rem; }
+    .feed .post__container {
+      margin-bottom: 3rem; }
+    .feed .post__img {
+      max-width: 100%;
+      max-height: 100%;
+      position: relative;
+      overflow: hidden;
+      display: block;
+      z-index: 5; }
+    .feed .post__content {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0.25rem 0.5rem; }
-      .post__content--text a {
-        text-decoration: none; }
-        .post__content--text a:visited, .post__content--text a:active {
-          color: inherit; }
-      .post__content--text h3 {
-        font-size: 1.4rem;
-        text-transform: uppercase; }
-      .post__content--text span {
-        font-size: 1.1rem; }
-    .post__content--krayv {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 100%;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 1rem 2rem; }
-      .post__content--krayv svg {
-        height: 2.25rem;
-        width: 2.25rem;
-        fill: none;
-        stroke: #474646;
-        stroke-width: 2px; }
-      .post__content--krayv span {
-        font-size: 1.4rem;
-        margin-top: 1rem;
-        color: #474646; }
-      .post__content--krayv:focus {
-        outline: none; }
-      .post__content--krayv:active {
-        background-color: #4eafac; }
+      justify-content: space-between;
+      background-color: #f9f7f6;
+      border-style: none solid solid solid;
+      border-width: 1px;
+      border-color: rgba(71, 70, 70, 0.25); }
+      .feed .post__content--text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0.25rem 0.5rem; }
+        .feed .post__content--text a {
+          text-decoration: none; }
+          .feed .post__content--text a:visited, .feed .post__content--text a:active {
+            color: inherit; }
+        .feed .post__content--text h3 {
+          font-size: 1.4rem;
+          text-transform: uppercase; }
+        .feed .post__content--text span {
+          font-size: 1.1rem; }
+      .feed .post__content--krayv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 1rem 2rem; }
+        .feed .post__content--krayv svg {
+          height: 2.25rem;
+          width: 2.25rem;
+          fill: rgba(71, 70, 70, 0.3); }
+        .feed .post__content--krayv span {
+          font-size: 1.4rem;
+          margin-top: 1rem;
+          color: #474646; }
+        .feed .post__content--krayv:focus {
+          outline: none; }
+        .feed .post__content--krayv:active {
+          background-color: #4eafac; }
 
 .header {
   display: grid;
@@ -271,49 +248,57 @@ section {
   grid-row: 1;
   margin-top: 5.75rem;
   margin-bottom: 5.75rem; }
-
-.favorites {
-  margin-bottom: 1rem; }
-  .favorites__restaurant {
+  section .favorites {
+    margin-bottom: 1rem;
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    column-gap: 0.5rem;
+    grid-template-columns: 1fr 2fr 1fr 0.6fr;
     background-color: #f9f7f6;
     border-style: solid none solid none;
     border-width: 1px;
     border-color: rgba(71, 70, 70, 0.25); }
-    .favorites__restaurant:link, .favorites__restaurant:visited {
-      text-decoration: none;
-      color: #474646; }
-    .favorites__restaurant:active {
-      background-color: none; }
-    .favorites__restaurant--img img {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      overflow: hidden;
-      display: block; }
-    .favorites__restaurant--content {
+    section .favorites__restaurant {
+      grid-column: 1 / 4;
+      display: grid;
+      column-gap: 0.5rem;
+      grid-template-columns: 1fr 2fr 1fr; }
+      section .favorites__restaurant:link, section .favorites__restaurant:visited {
+        text-decoration: none;
+        color: #474646; }
+      section .favorites__restaurant--img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block; }
+      section .favorites__restaurant--content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly; }
+        section .favorites__restaurant--content h3 {
+          font-size: 1.8rem; }
+        section .favorites__restaurant--content p {
+          font-size: 1.3rem; }
+    section .favorites__krayv {
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly; }
-      .favorites__restaurant--content h3 {
-        font-size: 1.8rem; }
-      .favorites__restaurant--content p {
-        font-size: 1.3rem; }
-  .favorites__krayv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; }
-    .favorites__krayv svg {
-      height: 2.5rem;
-      width: 2.5rem;
-      margin-top: 0.5rem;
-      fill: #474646; }
-    .favorites__krayv h3 {
-      font-size: 1.4rem;
-      margin-top: 0.5rem; }
+      align-items: center;
+      justify-content: center; }
+      section .favorites__krayv svg {
+        height: 2.5rem;
+        width: 2.5rem;
+        margin-top: 0.5rem;
+        fill: rgba(0, 91, 87, 0.75); }
+      section .favorites__krayv h3 {
+        font-size: 1.4rem;
+        margin-top: 0.5rem; }
+    section .favorites .btn--remove {
+      font-size: 2.25rem;
+      font-family: inherit;
+      font-weight: 700;
+      color: #474646;
+      background-color: rgba(246, 132, 15, 0.85);
+      cursor: pointer;
+      border: none;
+      border-left: 1px solid rgba(71, 70, 70, 0.25); }
 
 .restaurant {
   grid-column: 2;
@@ -331,15 +316,17 @@ section {
     font-size: 1.5rem; }
   .restaurant a {
     text-decoration: none;
-    color: #04736f;
-    -webkit-tap-highlight-color: rgba(242, 239, 238, 0.5); }
+    color: #04736f; }
   .restaurant svg {
     height: 2rem;
     width: 2rem;
     fill: #474646;
     margin-right: 0.75rem; }
   .restaurant button {
-    -webkit-tap-highlight-color: rgba(242, 239, 238, 0.5); }
+    height: 100%;
+    background-color: none;
+    border: none;
+    cursor: pointer; }
   .restaurant__main {
     background-position: center;
     background-size: cover;
@@ -394,13 +381,9 @@ section {
     .restaurant__hours--btn {
       display: flex;
       justify-content: flex-end;
-      align-items: center;
-      height: 100%;
-      background-color: none;
-      border: none;
-      cursor: pointer; }
+      align-items: center; }
       .restaurant__hours--btn svg {
-        margin: 0;
+        margin: 0 0.75rem 0 0;
         height: 1.75rem;
         width: 1.75rem;
         fill: #f6840f; }
@@ -417,26 +400,61 @@ section {
         margin-top: 0.5rem; }
   .restaurant__images {
     margin-top: 2rem; }
-    .restaurant__images h4 {
-      margin-left: 0.5rem; }
-    .restaurant__images--btn {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      height: 100%;
-      background: none;
-      border: none;
-      cursor: pointer; }
-      .restaurant__images--btn svg {
-        margin: 0;
-        height: 1.75rem;
-        width: 1.75rem;
-        fill: #f6840f; }
-    .restaurant__images--breakfast, .restaurant__images--brunch, .restaurant__images--lunch, .restaurant__images--dinner {
+    .restaurant__images--layout {
       display: grid;
       grid-template-columns: min-content 1fr;
+      grid-template-rows: min-content min-content;
       margin-bottom: 0.5rem;
       padding: 0.5rem 0.5rem;
       border-style: solid none;
       border-width: 1px;
       border-color: rgba(71, 70, 70, 0.25); }
+      .restaurant__images--layout h4 {
+        margin-left: 0.5rem;
+        font-size: 1.5rem; }
+      .restaurant__images--layout button {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center; }
+        .restaurant__images--layout button svg {
+          margin: 0 0.75rem 0 0;
+          height: 1.75rem;
+          width: 1.75rem;
+          fill: #f6840f; }
+      .restaurant__images--layout img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+        margin-top: 0.75rem; }
+      .restaurant__images--layout .images {
+        grid-row: 2;
+        grid-column: 1 / -1;
+        margin-left: 1rem;
+        margin-right: 1rem; }
+        .restaurant__images--layout .images .breakfast {
+          display: none; }
+        .restaurant__images--layout .images .brunch {
+          display: none; }
+        .restaurant__images--layout .images .lunch {
+          display: none; }
+        .restaurant__images--layout .images .dinner {
+          display: none; }
+
+.btn--close-modal {
+  background-color: #f6840f;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  height: 3rem;
+  width: 3rem;
+  font-family: inherit;
+  font-weight: 700;
+  color: #474646;
+  font-size: 2rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.5);
+  transition: all 0.3s;
+  z-index: 100; }
