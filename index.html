@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css" />
     <script src="node_modules/leaflet/dist/leaflet.js"></script>
 
-    <script defer src="script.js"></script>
+    <script defer src="js/feedScript.js"></script>
 
     <title>krayv</title>
 </head>
@@ -132,7 +132,7 @@
 
     <!-- ////////// GEO FILTER ////////////// -->
     <div class="geofilter hidden">
-        <button class="btn--close-modal">&times;</button>
+        <button class="btn--close-modal geoClose">&times;</button>
         <div id="map">
 
         </div>
@@ -140,7 +140,7 @@
 
     <!-- ////////// FILTERS ////////////// -->
     <div class="filters hidden">
-        <button class="btn--close-modal">&times;</button>
+        <button class="btn--close-modal filterClose">&times;</button>
         <div class="meal">
             <label><input class="checkbox" type="checkbox" id="breakfast"><span>Breakfast</span></label>
             <label><input class="checkbox" type="checkbox" id="brunch"><span>Brunch</span></label>
