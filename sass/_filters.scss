@@ -8,7 +8,7 @@
   height: 80%;
   width: 95%;
   transform: translate(-50%, -50%);
-  z-index: 85;
+  z-index: 103;
 
   padding: 4rem 3rem 2rem 3rem;
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.45);
@@ -30,6 +30,16 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .breakfast:checked ~ #breakfast,
+  .brunch:checked ~ #brunch,
+  .lunch:checked ~ #lunch,
+  .dinner:checked ~ #dinner,
+  .price1:checked ~ #price1,
+  .price2:checked ~ #price2,
+  .price3:checked ~ #price3 {
+    background-color: $color-primary-0;
+  }
+
   label {
     font-family: inherit;
     font-weight: 700;
@@ -38,6 +48,7 @@
     margin: 1rem;
     border-radius: 6px;
     transition: all 0.3s;
+    content: '';
 
     display: flex;
     flex-direction: column;
@@ -47,16 +58,7 @@
       display: flex;
       align-self: center;
     }
-
-    &:hover {
-      background-color: rgba($color-primary-0, 0.2);
-    }
-
-    &:active {
-      background-color: rgba($color-primary-0, 0.8);
-    }
   }
-
   input {
     display: none;
   }

@@ -1,5 +1,6 @@
 'use strict';
 
+////////////// FILTERS //////////////////
 //Geofilter
 const geoFilter = document.querySelector('.geofilter');
 const geoFilterBtn = document.querySelector('.bottomnav__btn--map');
@@ -47,3 +48,6 @@ const closeFilters = function () {
 
 filtersBtn.addEventListener('click', openFilters);
 closeFiltersBtn.addEventListener('click', closeFilters);
+
+////////////// FEED //////////////////
+const krayvBtn = document.querySelector('.post__content--krayv');

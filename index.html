@@ -102,6 +102,36 @@
             </article>
         </section>
 
+        <!-- ////////// GEO FILTER ////////////// -->
+        <div class="geofilter hidden">
+            <button class="btn--close-modal geoClose">&times;</button>
+            <div id="map">
+
+            </div>
+        </div>
+
+        <!-- ////////// FILTERS ////////////// -->
+        <div class="filters hidden">
+            <button class="btn--close-modal filterClose">&times;</button>
+            <div class="meal">
+                <input class="breakfast" type="checkbox" id="breakfast"><label for="breakfast"
+                    id="breakfast"><span>Breakfast</span></label>
+                <input class="brunch" type="checkbox" id="brunch"><label for="brunch"
+                    id="brunch"><span>Brunch</span></label>
+                <input class="lunch" type="checkbox" id="lunch"><label for="lunch" id="lunch"><span>Lunch</span></label>
+                <input class="dinner" type="checkbox" id="dinner"><label for="dinner"
+                    id="dinner"><span>Dinner</span></label>
+            </div>
+            <div class="price">
+                <input class="price1" type="checkbox" id="price1"><label for="price1"
+                    id="price1"><span>&dollar;</span></label>
+                <input class="price2" type="checkbox" id="price2"><label for="price2"
+                    id="price2"><span>&dollar;&dollar;</span></label>
+                <input class="price3" type="checkbox" id="price3"><label for="price3"
+                    id="price3"><span>&dollar;&dollar;&dollar;</span></label>
+            </div>
+        </div>
+
     </main>
 
     <div class="bottomnav">
@@ -130,29 +160,7 @@
         </ul>
     </div>
 
-    <!-- ////////// GEO FILTER ////////////// -->
-    <div class="geofilter hidden">
-        <button class="btn--close-modal geoClose">&times;</button>
-        <div id="map">
 
-        </div>
-    </div>
-
-    <!-- ////////// FILTERS ////////////// -->
-    <div class="filters hidden">
-        <button class="btn--close-modal filterClose">&times;</button>
-        <div class="meal">
-            <label><input class="checkbox" type="checkbox" id="breakfast"><span>Breakfast</span></label>
-            <label><input class="checkbox" type="checkbox" id="brunch"><span>Brunch</span></label>
-            <label><input class="checkbox" type="checkbox" id="lunch"><span>Lunch</span></label>
-            <label><input class="checkbox" type="checkbox" id="dinner"><span>Dinner</span></label>
-        </div>
-        <div class="price">
-            <label><input class="checkbox" type="checkbox" id="pric1"><span>&dollar;</span></label>
-            <label><input class="checkbox" type="checkbox" id="pric2"><span>&dollar;&dollar;</span></label>
-            <label><input class="checkbox" type="checkbox" id="pric3"><span>&dollar;&dollar;&dollar;</span></label>
-        </div>
-    </div>
 
 
 </body>

@@ -4,8 +4,8 @@
   grid-row: 1;
 
   .post {
-    margin-top: 5.75rem;
-    margin-bottom: 5.75rem;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
 
     &__container {
       margin-bottom: 3rem;
@@ -67,6 +67,7 @@
           height: 2.25rem;
           width: 2.25rem;
           fill: rgba($color-grey-dark-1, 0.3);
+          transition: all 0.3s;
         }
 
         span {
@@ -79,8 +80,9 @@
           outline: none;
         }
 
-        &:active {
-          background-color: $color-secondary-1;
+        &:active svg {
+          fill: $color-secondary-1;
+          transform: translateY(0);
         }
       }
     }

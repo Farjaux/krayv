@@ -44,10 +44,10 @@ body {
   top: 50%;
   left: 50%;
   border-radius: 6px;
-  height: 50rem;
-  width: 80%;
+  height: 80%;
+  width: 95%;
   transform: translate(-50%, -50%);
-  z-index: 85;
+  z-index: 103;
   padding: 4rem 3rem 2rem 3rem;
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.45);
   background-color: #f9f7f6;
@@ -62,6 +62,14 @@ body {
   .filters .price {
     display: grid;
     grid-template-columns: repeat(3, 1fr); }
+  .filters .breakfast:checked ~ #breakfast,
+  .filters .brunch:checked ~ #brunch,
+  .filters .lunch:checked ~ #lunch,
+  .filters .dinner:checked ~ #dinner,
+  .filters .price1:checked ~ #price1,
+  .filters .price2:checked ~ #price2,
+  .filters .price3:checked ~ #price3 {
+    background-color: #f6840f; }
   .filters label {
     font-family: inherit;
     font-weight: 700;
@@ -70,16 +78,13 @@ body {
     margin: 1rem;
     border-radius: 6px;
     transition: all 0.3s;
+    content: '';
     display: flex;
     flex-direction: column;
     justify-content: center; }
     .filters label span {
       display: flex;
       align-self: center; }
-    .filters label:hover {
-      background-color: rgba(246, 132, 15, 0.2); }
-    .filters label:active {
-      background-color: rgba(246, 132, 15, 0.8); }
   .filters input {
     display: none; }
 
@@ -87,10 +92,10 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  height: 50rem;
-  width: 80%;
+  height: 80%;
+  width: 95%;
   transform: translate(-50%, -50%);
-  z-index: 86;
+  z-index: 104;
   padding: 0.5rem;
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.45);
   background-color: #f9f7f6;
@@ -109,7 +114,7 @@ body {
 .bottomnav {
   display: grid;
   grid-template-columns: 1fr minmax(5rem, 60rem) 1fr;
-  height: 4.75rem;
+  height: 5rem;
   z-index: 101;
   width: 100%;
   position: fixed;
@@ -145,8 +150,8 @@ body {
   grid-column: 2;
   grid-row: 1; }
   .feed .post {
-    margin-top: 5.75rem;
-    margin-bottom: 5.75rem; }
+    margin-top: 6rem;
+    margin-bottom: 6rem; }
     .feed .post__container {
       margin-bottom: 3rem; }
     .feed .post__img {
@@ -189,20 +194,22 @@ body {
         .feed .post__content--krayv svg {
           height: 2.25rem;
           width: 2.25rem;
-          fill: rgba(71, 70, 70, 0.3); }
+          fill: rgba(71, 70, 70, 0.3);
+          transition: all 0.3s; }
         .feed .post__content--krayv span {
           font-size: 1.4rem;
           margin-top: 1rem;
           color: #474646; }
         .feed .post__content--krayv:focus {
           outline: none; }
-        .feed .post__content--krayv:active {
-          background-color: #4eafac; }
+        .feed .post__content--krayv:active svg {
+          fill: #4eafac;
+          transform: translateY(0); }
 
 .header {
   display: grid;
   grid-template-columns: 1fr minmax(5rem, 60rem) 1fr;
-  height: 4.75rem;
+  height: 5rem;
   z-index: 102;
   width: 100%;
   position: fixed;
@@ -247,8 +254,8 @@ body {
 section {
   grid-column: 2;
   grid-row: 1;
-  margin-top: 5.75rem;
-  margin-bottom: 5.75rem; }
+  margin-top: 6rem;
+  margin-bottom: 6rem; }
   section .favorites {
     margin-bottom: 1rem;
     display: grid;
@@ -304,8 +311,8 @@ section {
 .restaurant {
   grid-column: 2;
   grid-row: 1;
-  margin-top: 5.75rem;
-  margin-bottom: 5.75rem;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
   display: grid;
   grid-template-rows: minmax(10rem, 20rem) repeat(4, max-content);
   row-gap: 0.5rem; }
