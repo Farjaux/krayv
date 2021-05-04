@@ -11,11 +11,6 @@ html {
   box-sizing: border-box;
   font-size: 62.5%; }
 
-a,
-button {
-  -webkit-tap-highlight-color: rgba(242, 239, 238, 0.5);
-  background-color: none; }
-
 body {
   font-family: "Lato", sans-serif;
   line-height: 1.6;
@@ -36,6 +31,12 @@ body {
   body .hidden {
     visibility: hidden;
     opacity: 0; }
+
+.nb {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+
+.ns {
+  -webkit-user-select: none; }
 
 .filters {
   grid-column: 2;
@@ -194,7 +195,7 @@ body {
         .feed .post__content--krayv svg {
           height: 2.25rem;
           width: 2.25rem;
-          fill: rgba(71, 70, 70, 0.3);
+          fill: #474646;
           transition: all 0.3s; }
         .feed .post__content--krayv span {
           font-size: 1.4rem;
@@ -358,9 +359,7 @@ section {
         margin: 0;
         height: 2.5rem;
         width: 2.5rem;
-        fill: none;
-        stroke: #474646;
-        stroke-width: 1px; }
+        fill: #474646; }
   .restaurant__info {
     display: grid;
     grid-template-rows: repeat(4, min-content);
