@@ -8,6 +8,7 @@
   display: grid;
   grid-template-rows: minmax(10rem, 20rem) repeat(4, max-content);
   row-gap: 0.5rem;
+  background-color: $color-grey-light-2;
 
   h3 {
     font-size: 2rem;
@@ -67,7 +68,7 @@
           margin: 0;
           height: 2.5rem;
           width: 2.5rem;
-          fill: $color-grey-dark-1;
+          fill: $color-secondary-1;
         }
       }
     }
