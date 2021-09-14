@@ -45,6 +45,11 @@ const userSchema = new mongoose.Schema({
   passwordChangedAt: Date,
   passwordResetToken: String,
   passwordResetExpires: Date,
+  active: {
+    type: Boolean,
+    default: true,
+    select: false,
+  },
 });
 
 /////////////////////
@@ -59,7 +64,27 @@ userSchema.pre('save', async function (next) {
   next();
 });
 
-//Instance Method. Compare user password with hashed password on login
+/////////////////////
+/////////Pre-save Middleware to update passwordChangedAt property
+userSchema.pre('save', async function (next) {
+  // run right before a document is saved
+  // only run if we modify password property or new document (mongoose documentation)
+  if (!this.isModified('password') || this.isNew) return next();
+  // otherwise change password changed at date (token is created before so must subtract 1 sec)
+  this.passwordChangedAt = Date.now() - 1000;
+  next();
+});
+
+/////////////////////
+/////////Query Middleware to find only active users
+userSchema.pre(/^find/, function (next) {
+  // THIS points to the current query
+  this.find({ active: { $ne: false } });
+  next();
+});
+
+/////////////////////
+/////////Instance Method. Compare user password with hashed password on login
 userSchema.methods.correctPassword = async function (
   candidatePassword,
   userPassword
@@ -67,7 +92,8 @@ userSchema.methods.correctPassword = async function (
   return await bcrypt.compare(candidatePassword, userPassword);
 };
 
-//Instance Method. Check if user changed their password
+/////////////////////
+/////////Instance Method. Check if user changed their password
 userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
   if (this.passwordChangedAt) {
     const changedTimestamp = parseInt(
