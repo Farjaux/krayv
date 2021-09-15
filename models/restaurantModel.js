@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
+const Geocodio = require('geocodio-library-node');
 
 const restaurantSchema = new mongoose.Schema({
   name: {
@@ -16,25 +17,9 @@ const restaurantSchema = new mongoose.Schema({
     required: true,
   },
   phoneNumber: { type: String, trim: true },
-  locations: [
-    {
-      // GeoJSON
-      type: {
-        type: String,
-        default: 'Point',
-        enum: ['Point'],
-      },
-      coordinates: [Number],
-      address: { type: String, required: [true, 'Please provide an address'] },
-      description: String,
-    },
-  ],
-  // address: {
-  //   street: { type: String, trim: true, lowercase: true },
-  //   city: { type: String, trim: true, lowercase: true },
-  //   state: { type: String, trim: true, lowercase: true },
-  //   zip: Number,
-  // },
+  lat: { type: Number, select: false },
+  lng: { type: Number, select: false },
+  address: { type: String, required: [true, 'Please provide an address'] },
   website: { type: String, trim: true, lowercase: true },
   delivery: {
     ubereats: { type: String, trim: true, lowercase: true },
@@ -113,6 +98,17 @@ restaurantSchema.pre('save', function (next) {
   //Need to make the slug unique somehow (Update: Appended date created unix timestamp)
   this.slug =
     slugify(this.name, { lower: true, remove: /[*+~.()'"!:@]/g }) + Date.now();
+  next();
+});
+
+// Pre-save middleware for geocodign
+// https://www.geocod.io/docs/
+restaurantSchema.pre('save', async function (next) {
+  const geocoder = new Geocodio('634e412158103814a1f842a6e0331ef0f3363a2');
+  const output = await geocoder.geocode(this.address, [], 1);
+  const { lat, lng } = output.results[0].location;
+  this.lat = lat;
+  this.lng = lng;
   next();
 });
 
