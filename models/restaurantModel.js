@@ -16,12 +16,25 @@ const restaurantSchema = new mongoose.Schema({
     required: true,
   },
   phoneNumber: { type: String, trim: true },
-  address: {
-    street: { type: String, trim: true, lowercase: true },
-    city: { type: String, trim: true, lowercase: true },
-    state: { type: String, trim: true, lowercase: true },
-    zip: Number,
-  },
+  locations: [
+    {
+      // GeoJSON
+      type: {
+        type: String,
+        default: 'Point',
+        enum: ['Point'],
+      },
+      coordinates: [Number],
+      address: { type: String, required: [true, 'Please provide an address'] },
+      description: String,
+    },
+  ],
+  // address: {
+  //   street: { type: String, trim: true, lowercase: true },
+  //   city: { type: String, trim: true, lowercase: true },
+  //   state: { type: String, trim: true, lowercase: true },
+  //   zip: Number,
+  // },
   website: { type: String, trim: true, lowercase: true },
   delivery: {
     ubereats: { type: String, trim: true, lowercase: true },
@@ -95,9 +108,11 @@ Types: document, query, aggregate, model
 ////DOCUMENT Middleware: runs before .save() and .create()
 
 ////Pre hook
+// https://www.npmjs.com/package/slugify
 restaurantSchema.pre('save', function (next) {
-  //Need to make the slug unique somehow
-  this.slug = slugify(this.name, { lower: true, remove: /[*+~.()'"!:@]/g });
+  //Need to make the slug unique somehow (Update: Appended date created unix timestamp)
+  this.slug =
+    slugify(this.name, { lower: true, remove: /[*+~.()'"!:@]/g }) + Date.now();
   next();
 });
 

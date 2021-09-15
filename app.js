@@ -1,5 +1,10 @@
 const express = require('express');
 const morgan = require('morgan');
+const rateLimit = require('express-rate-limit');
+const helmet = require('helmet');
+const mongoSanitize = require('express-mongo-sanitize');
+const xss = require('xss-clean');
+const hpp = require('hpp');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -9,17 +14,50 @@ const userRouter = require('./routes/userRoutes');
 const app = express();
 
 ///////////////////
-///////Middleware
+///////GLOBAL Middleware
+
+// https://www.npmjs.com/package/helmet
+// Set security HTTP headers
+app.use(helmet());
+
+// Development logging
 if (process.env.NODE_ENV === 'development') {
   //Morgan
   app.use(morgan('dev'));
 }
 
-//Express
-app.use(express.json());
+// https://www.npmjs.com/package/express-rate-limit
+// Protect again Brute Force and Denial-of-Service Attacks. Rate limit 100 requests per hour
+const limiter = rateLimit({
+  max: 100,
+  windowMs: 60 * 60 * 1000,
+  message: 'Too many requests from this IP, please try again later',
+});
+app.use('/api', limiter);
+
+// Body parser, reading data from body into req.body
+app.use(express.json({ limit: '10kb' }));
+
+// Data Sanitization against NoSQL query injection
+// Removes query symbols from requests
+// https://www.npmjs.com/package/express-mongo-sanitize
+app.use(mongoSanitize());
+
+// Data Sanitization against Cross-Site Scripting (XSS) Attacks
+// Removes malicious HTML code
+// https://www.npmjs.com/package/xss-clean
+app.use(xss());
+
+// Prevent paramter pollution
+// Cleans query string
+// https://www.npmjs.com/package/hpp
+// To add whitelisted parameters { whitelist: [], }
+app.use(hpp());
+
+// Serving static files
 app.use(express.static(`${__dirname}/public`));
 
-//To get request time
+// To get request time
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
   next();
