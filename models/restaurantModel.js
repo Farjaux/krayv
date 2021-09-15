@@ -7,7 +7,6 @@ const restaurantSchema = new mongoose.Schema({
     type: String,
     required: [true, 'A restaurant must have a name'],
     trim: true,
-    lowercase: true,
   },
   coverImage: { type: String, required: true },
   cuisine: { type: String, trim: true, lowercase: true },
@@ -17,9 +16,14 @@ const restaurantSchema = new mongoose.Schema({
     required: true,
   },
   phoneNumber: { type: String, trim: true },
-  lat: { type: Number, select: false },
-  lng: { type: Number, select: false },
-  address: { type: String, required: [true, 'Please provide an address'] },
+  location: {
+    type: {
+      type: String,
+      enum: ['Point'],
+    },
+    coordinates: [Number],
+    address: { type: String, required: [true, 'Please provide an address'] },
+  },
   website: { type: String, trim: true, lowercase: true },
   delivery: {
     ubereats: { type: String, trim: true, lowercase: true },
@@ -105,10 +109,9 @@ restaurantSchema.pre('save', function (next) {
 // https://www.geocod.io/docs/
 restaurantSchema.pre('save', async function (next) {
   const geocoder = new Geocodio('634e412158103814a1f842a6e0331ef0f3363a2');
-  const output = await geocoder.geocode(this.address, [], 1);
+  const output = await geocoder.geocode(this.location.address, [], 1);
   const { lat, lng } = output.results[0].location;
-  this.lat = lat;
-  this.lng = lng;
+  this.location.coordinates = [lng, lat];
   next();
 });
 
