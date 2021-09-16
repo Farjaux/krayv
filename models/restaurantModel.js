@@ -19,6 +19,7 @@ const restaurantSchema = new mongoose.Schema({
   location: {
     type: {
       type: String,
+      default: 'Point',
       enum: ['Point'],
     },
     coordinates: [Number],
@@ -96,6 +97,9 @@ Types: document, query, aggregate, model
 
 ////DOCUMENT Middleware: runs before .save() and .create()
 
+///////// Indexing helps queries run faster instead of querying all docuemnts.
+restaurantSchema.index({ slug: 1 });
+
 ////Pre hook
 // https://www.npmjs.com/package/slugify
 restaurantSchema.pre('save', function (next) {
@@ -105,10 +109,12 @@ restaurantSchema.pre('save', function (next) {
   next();
 });
 
-// Pre-save middleware for geocodign
+// How to udpate coordinates if Restaurant updates address?
+// What happens if the address provided is already in use or cannot be found
+// Pre-save middleware for geocoding
 // https://www.geocod.io/docs/
 restaurantSchema.pre('save', async function (next) {
-  const geocoder = new Geocodio('634e412158103814a1f842a6e0331ef0f3363a2');
+  const geocoder = new Geocodio(process.env.GEO_API);
   const output = await geocoder.geocode(this.location.address, [], 1);
   const { lat, lng } = output.results[0].location;
   this.location.coordinates = [lng, lat];
