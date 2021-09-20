@@ -1,6 +1,7 @@
 const Restaurant = require('../models/restaurantModel');
 const catchAsync = require('../utils/catchAsync');
 const factory = require('./handlerFactory');
+const AppError = require('../utils/appError');
 
 /*
 .find(), .findById(), .creat(), .findByIdAndUpdate() are all functions of Mongoose. See Mongoose documentation for more useful functions. https://mongoosejs.com/
@@ -39,3 +40,32 @@ exports.deleteRestaurant = factory.deleteOne(Restaurant);
 /*
 https://docs.mongodb.com/manual/core/aggregation-pipeline/
 */
+
+// '/rests-within/:distance/center/:latlng'
+exports.getRestaurantsWithin = catchAsync(async (req, res, next) => {
+  const { distance, latlng } = req.params;
+  const [lat, lng] = latlng.split(',');
+
+  const radius = distance / 3963.2;
+
+  if (!lat || !lng) {
+    next(
+      new AppError(
+        'Please provide latitude and longitude in format lat,lng',
+        400
+      )
+    );
+  }
+
+  const restaurants = await Restaurant.find({
+    location: { $geoWithin: { $centerSphere: [[lng, lat], radius] } },
+  });
+
+  res.status(200).json({
+    status: 'success',
+    restults: restaurants.length,
+    data: {
+      data: restaurants,
+    },
+  });
+});

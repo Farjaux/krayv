@@ -32,48 +32,29 @@ const restaurantSchema = new mongoose.Schema({
     grubhub: { type: String, trim: true, lowercase: true },
     postmates: { type: String, trim: true, lowercase: true },
   },
-  breakfast: [
+  users: [
     {
-      image: String,
-      krayv: { type: Number, default: 0 },
-      post: {
-        type: String,
-        maxlength: [90, 'A post can only contain 90 characters'],
-      },
-      type: { type: String, default: 'break' },
+      type: mongoose.Schema.ObjectId,
+      ref: 'User',
     },
   ],
-  brunch: [
+  posts: [
     {
-      image: String,
+      imageFile: { type: String, reqired: true },
       krayv: { type: Number, default: 0 },
-      post: {
+      about: {
         type: String,
-        maxlength: [90, 'A post can only contain 90 characters'],
+        maxLength: [90, 'A post can only contain 90 characters'],
+        reqired: true,
       },
-      type: { type: String, default: 'brunch' },
-    },
-  ],
-  lunch: [
-    {
-      image: String,
-      krayv: { type: Number, default: 0 },
-      post: {
+      meal: {
         type: String,
-        maxlength: [90, 'A post can only contain 90 characters'],
+        enum: {
+          values: ['b', 'br', 'l', 'd'],
+          message: 'Does not match meal types',
+        },
+        required: true,
       },
-      type: { type: String, default: 'lunch' },
-    },
-  ],
-  dinner: [
-    {
-      image: String,
-      krayv: { type: Number, default: 0 },
-      post: {
-        type: String,
-        maxlength: [90, 'A post can only contain 90 characters'],
-      },
-      type: { type: String, default: 'dinn' },
     },
   ],
   createdAt: { type: Date, default: Date.now(), select: false },
@@ -99,6 +80,7 @@ Types: document, query, aggregate, model
 
 ///////// Indexing helps queries run faster instead of querying all docuemnts.
 restaurantSchema.index({ slug: 1 });
+restaurantSchema.index({ location: '2dsphere' });
 
 ////Pre hook
 // https://www.npmjs.com/package/slugify

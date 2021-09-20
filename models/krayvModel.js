@@ -16,7 +16,7 @@ const krayvSchema = new mongoose.Schema(
     restaurantImage: {
       type: mongoose.Schema.ObjectId,
       ref: 'Restaurant',
-      required: [true, 'Comment must belong to a tour'],
+      required: [true, 'Comment must belong to a restaurant'],
     },
     user: {
       type: mongoose.Schema.ObjectId,
