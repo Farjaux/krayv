@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 
+///////////////////
+////////May use this for child referencing since the main feed doesn't only needs post information
+
 const postsSchema = new mongoose.Schema(
   [
     {

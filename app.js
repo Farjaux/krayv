@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
@@ -13,8 +14,15 @@ const userRouter = require('./routes/userRoutes');
 
 const app = express();
 
+// Pug templates for client side rendering
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
+
 ///////////////////
 ///////GLOBAL Middleware
+
+// Serving static files
+app.use(express.static(path.join(__dirname, 'public')));
 
 // https://www.npmjs.com/package/helmet
 // Set security HTTP headers
@@ -54,9 +62,6 @@ app.use(xss());
 // To add whitelisted parameters { whitelist: [], }
 app.use(hpp());
 
-// Serving static files
-app.use(express.static(`${__dirname}/public`));
-
 // To get request time
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
@@ -65,6 +70,13 @@ app.use((req, res, next) => {
 
 ///////////////////
 ///////Routes
+
+//rendering views with pug templates
+app.get('/views', (req, res) => {
+  // res.set('Content-Type', 'text/html');
+  res.status(200).render('base');
+});
+//api routes
 app.use('/api/v1/restaurants', restaurantRouter);
 app.use('/api/v1/users', userRouter);
 
