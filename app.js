@@ -11,6 +11,7 @@ const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const restaurantRouter = require('./routes/restaurantRoutes');
 const userRouter = require('./routes/userRoutes');
+const viewRouter = require('./routes/viewRoutes');
 
 const app = express();
 
@@ -71,12 +72,8 @@ app.use((req, res, next) => {
 ///////////////////
 ///////Routes
 
-//rendering views with pug templates
-app.get('/views', (req, res) => {
-  // res.set('Content-Type', 'text/html');
-  res.status(200).render('base');
-});
 //api routes
+app.use('/', viewRouter);
 app.use('/api/v1/restaurants', restaurantRouter);
 app.use('/api/v1/users', userRouter);
 

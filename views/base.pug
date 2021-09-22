@@ -7,34 +7,14 @@ html(lang='en')
         link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap')
         link(rel='shortcut icon' href='img/noun_organic_44210.png' type='image/x-icon')
         link(rel='stylesheet' href='css/style.css') 
-        title krayv
+        title krayv #{title}
 
     body
-        header.header 
-            nav.nav 
-                img.nav__logo(src='img/logo_really_small.png' alt='Logo')
-                ul.nav__list 
-                    li.nav__item 
-                        a.nav__btn.nav__btn--favorites(href='#')
-                            svg.nav__icon 
-                                use(href='img/icons.svg#icon-star-full')
-                    li.nav__item 
-                        a.nav__btn.nav__btn--profile(href='#')
-                            svg.nav__icon 
-                                use(href='img/icons.svg#icon-user')
+        //- HEADER
+        include _header
 
+        //- CONTENT
+        block content 
 
-        .bottomnav 
-            ul.bottomnav__list 
-                li.bottomnav__item 
-                    a.bottomnav__btn.bottomnav__btn--home(href="#")
-                        svg.bottomnav__icon 
-                            use(href="img/icons.svg#icon-home3")
-                li.bottomnav__item 
-                    button.bottomnav__btn.bottomnav__btn--filter
-                        svg.bottomnav__icon 
-                            use(href="img/icons.svg#icon-filter")
-                li.bottomnav__item 
-                    button.bottomnav__btn.bottomnav__btn--map
-                        svg.bottomnav__icon 
-                            use(href="img/icons.svg#icon-map")
+        //- FOOTER
+        include _footer
