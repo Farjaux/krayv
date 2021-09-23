@@ -1,4 +1,17 @@
 extends base
 
 block content 
-    h1 This is the favorites page
+    section 
+        article.favorites 
+            a.favorites__restaurant(href='/public/html/restaurant.html')
+                figure.favorites__restaurant--img
+                    img(src='../img/food-image-1.png' alt='Plate 1')
+                .favorites__restaurant--content
+                    h3.favorites__content--name Restaurant Name
+                    p.favorites__content--location City, State 
+                    p.favorites__content--cuisine Cuisine Type
+                .favorites__krayv 
+                    svg 
+                        use(href='../img/icons.svg#icon-grin2')
+                    <h3><strong>24</strong></h3>
+            button.btn--remove &times;
