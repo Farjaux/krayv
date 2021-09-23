@@ -4,14 +4,15 @@ block content
     main.feed 
         section.post 
             each post in posts
-                article.post__container 
+                article.post__container(id=`${post.meal}`)
                     a(href='#')
-                        img.post__img(src="img/food-image-1.png" alt="Plate 1")
+                        img.post__img(src=`img/${post.imageFile}` alt=`${post.imageFile}`)
                     .post__content 
                         .post__content--text 
-                            a(href="#")
-                                h3 Plate Name 
-                                span Some sort of description here
+                            a(href='#')
+                                h3= post.plateName 
+                                span= post.about
                         button.post__content--krayv 
                             svg 
-                                use(href="#")
+                                use(href='img/icons.svg#icon-grin')
+                            span= post.krayv

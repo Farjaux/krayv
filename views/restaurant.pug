@@ -3,3 +3,61 @@ extends base
 block content 
     section.restaurant 
         .restaurant__main(style="background-image: url(../img/food-image-1.png);") &nbsp;
+        .restaurant__description
+            .restaurant__description--info
+                h3 Restaurant Name 
+                p 1258 krayvs 
+                p Cuisine &bull; &dollar;&dollar;&dollar;
+            .restaurant__description--fav
+                button.btn__fav.nb 
+                    svg.btn__fav--icon 
+                        use(href='../img/icons.svg#icon-star-empty')
+                    p Add to
+                    p Favorites
+        .restaurant__info   
+            .restaurant__info--location
+                svg 
+                    use(href="../img/icons.svg#icon-location")
+                a.nb(href='#')
+                    h4 41354 Jefferson St Boise, ID 83864
+            .restaurant__info--phone
+                svg 
+                    use(href="../img/icons.svg#icon-mobile")
+                a.nb(href='tel:3179790634')
+                    h4 Telephone Number 
+            .restaurant__info--website
+                svg 
+                    use(href="../img/icons.svg#icon-sphere")
+                a.nb(href='#')
+                    h4 www.website.com 
+            .restaurant__info--delivery
+                svg 
+                    use(href="../img/icons.svg#icon-rocket")
+                a.nb(href='#')
+                    h4 Uber Eats
+                a.nb(href='#')
+                    h4 DoorDash
+                a.nb(href='#')
+                    h4 GrubHub
+                a.nb(href='#')
+                    h4 PostMates
+        .restaurant__hours
+            svg 
+                use(href="../img/icons.svg#icon-clock2")
+            h4 Hours 
+            button.restaurant__hours--btn.nb
+                svg 
+                    use(href='../img/icons.svg#icon-circle-down')
+            div.restaurant__hours--time
+                ul 
+                    .restaurant__hours--time-1
+                        li Monday: 12am - 12pm
+                        li Tuesday: 12am - 12pm
+                        li Wednesday: 12am - 12pm
+                        li Thursday: 12am - 12pm
+                    .restaurant__hours--time-2
+                        li Friday: 12am - 12pm
+                        li Saturday: 12am - 12pm
+                        li Sunday: 12am - 12pm
+        .restaurant__images
+

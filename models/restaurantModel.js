@@ -47,6 +47,11 @@ const restaurantSchema = new mongoose.Schema({
         maxLength: [90, 'A post can only contain 90 characters'],
         reqired: true,
       },
+      plateName: {
+        type: String,
+        maxLength: [20, 'A plate name can only contain 20 characters'],
+        required: true,
+      },
       meal: {
         type: String,
         enum: {

@@ -11,7 +11,6 @@ exports.getPosts = catchAsync(async (req, res) => {
       posts.push(allPosts);
     }
   }
-
   // 2) Build Template
 
   // 3) Render that template using post data from 1
