@@ -34,12 +34,13 @@ const restaurantSchema = new mongoose.Schema({
   },
   users: [
     {
-      type: mongoose.Schema.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
     },
   ],
   posts: [
     {
+      slug: String,
       imageFile: { type: String, reqired: true },
       krayv: { type: Number, default: 0 },
       about: {

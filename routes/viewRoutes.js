@@ -6,6 +6,6 @@ const router = express.Router();
 //rendering views with pug templates
 router.get('/p', viewsController.getPosts);
 router.get('/favorites', viewsController.getFavorites);
-router.get('/restaurant', viewsController.getRestaurant);
+router.get('/restaurant/:slug', viewsController.getRestaurant);
 
 module.exports = router;

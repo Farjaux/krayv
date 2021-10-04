@@ -1,13 +1,15 @@
 extends base
 
 block content 
+    head 
+        script(defer src='/js/restaurantScript.js')
     section.restaurant 
-        .restaurant__main(style='background-image: url(../img/food-image-1.png);') &nbsp;
+        .restaurant__main(style=`background-image: url(../img/${restaurant.coverImage});`) &nbsp;
         .restaurant__description
             .restaurant__description--info
-                h3 Restaurant Name 
+                h3= restaurant.name 
                 p 1258 krayvs 
-                p Cuisine &bull; &dollar;&dollar;&dollar;
+                p= restaurant.cuisine
             .restaurant__description--fav
                 button.btn__fav.nb 
                     svg.btn__fav--icon 
@@ -19,27 +21,27 @@ block content
                 svg 
                     use(href='../img/icons.svg#icon-location')
                 a.nb(href='#')
-                    h4 41354 Jefferson St Boise, ID 83864
+                    h4= restaurant.location.address
             .restaurant__info--phone
                 svg 
                     use(href='../img/icons.svg#icon-mobile')
                 a.nb(href='tel:3179790634')
-                    h4 Telephone Number 
+                    h4= restaurant.phoneNumber
             .restaurant__info--website
                 svg 
                     use(href='../img/icons.svg#icon-sphere')
-                a.nb(href='#')
-                    h4 www.website.com 
+                a.nb(href= restaurant.website target="_blank" rel="noopener noreferrer")
+                    h4= restaurant.website 
             .restaurant__info--delivery
                 svg 
                     use(href='../img/icons.svg#icon-rocket')
-                a.nb(href='#')
+                a.nb(href= restaurant.delivery.ubereats)
                     h4 Uber Eats
-                a.nb(href='#')
+                a.nb(href= restaurant.delivery.doordash)
                     h4 DoorDash
-                a.nb(href='#')
+                a.nb(href= restaurant.delivery.grubhub)
                     h4 GrubHub
-                a.nb(href='#')
+                a.nb(href= restaurant.delivery.postmates)
                     h4 PostMates
         .restaurant__hours
             svg 

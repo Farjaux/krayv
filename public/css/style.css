@@ -348,6 +348,8 @@ section {
     grid-template-columns: 3fr min-content;
     border-bottom: 1px solid rgba(71, 70, 70, 0.25);
     padding-left: 0.5rem; }
+    .restaurant__description--info p {
+      text-transform: capitalize; }
     .restaurant__description--fav .btn__fav {
       font-family: inherit;
       height: 100%;

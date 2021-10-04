@@ -1,3 +1,4 @@
+const Restaurant = require('../models/restaurantModel');
 const Restaurants = require('../models/restaurantModel');
 const catchAsync = require('../utils/catchAsync');
 
@@ -42,8 +43,11 @@ exports.getFavorites = (req, res) => {
   });
 };
 
-exports.getRestaurant = (req, res) => {
+exports.getRestaurant = catchAsync(async (req, res) => {
+  const restaurant = await Restaurant.findOne({ slug: req.params.slug });
+
   res.status(200).render('restaurant', {
     title: '| restaurant',
+    restaurant,
   });
-};
+});
