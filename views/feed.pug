@@ -1,24 +1,56 @@
 extends base
 
 block content 
-    head 
-        script(defer src='/js/leaflet.js')
-        script(defer src='/js/feedScript.js')
+    //- head 
+    //-     script(defer src='/js/feedScript.js')
+    //-     script(src='/js/leaflet.js')
+    .overlay.hidden
     main.feed 
         section.post 
-            each post in posts
-                article.post__container(id=`${post.meal}`)
-                    a(href=`#`)
-                        img.post__img(src=`img/${post.imageFile}` alt=`${post.imageFile}`)
-                    .post__content 
-                        .post__content--text 
-                            a(href=`#`)
-                                h3= post.plateName 
-                                span= post.about
-                        button.post__content--krayv
-                            svg 
-                                use(href=`img/icons.svg#icon-grin`)
-                            span= post.krayv
+            each restaurant, index in restaurants
+                each post in restaurant.posts
+                    article.post__container(id=`${post.meal}`)
+                        a(href=`/restaurant/${restaurant.slug}`)
+                            img.post__img(src=`img/${post.imageFile}` alt=`${post.imageFile}`)
+                        .post__content 
+                            .post__content--text 
+                                a(href=`/restaurant/${restaurant.slug}`)
+                                    h3= post.plateName 
+                                    span= post.about
+                            button.post__content--krayv
+                                svg 
+                                    use(href=`img/icons.svg#icon-grin`)
+                                span= post.krayv
+
+        .geofilter.hidden
+            button.btn--close-modal.geoClose &times;
+            div(id='map')
+
+        //- .filters.hidden
+        //-     button.btn--close-modal.filterClose &times;
+        //-     .meal 
+        //-         input.breakfast(type="checkbox" id="breakfast")
+        //-         label(for="breakfast" id="breakfast")
+        //-             span= Breakfast
+        //-         input.breakfast(type="checkbox" id="brunch")
+        //-         label(for="brunch" id="brunch")
+        //-             span= Brunch
+        //-         input.breakfast(type="checkbox" id="lunch")
+        //-         label(for="lunch" id="lunch")
+        //-             span= Lunch
+        //-         input.breakfast(type="checkbox" id="dinner")
+        //-         label(for="dinner" id="dinner")
+        //-             span= Dinner
+        //-     .price 
+        //-         input.price1(type="checkbox" id="price1")
+        //-         label(for="price1" id="price1")
+        //-             span= &dollar;
+        //-         input.price2(type="checkbox" id="price2")
+        //-         label(for="price2" id="price2")
+        //-             span= &dollar;&dollar;
+        //-         input.price3(type="checkbox" id="price3")
+        //-         label(for="price3" id="price3")
+        //-             span= &dollar;&dollar;&dollar;
 
     //- FOOTER
     include _footer

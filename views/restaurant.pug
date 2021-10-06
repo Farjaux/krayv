@@ -20,28 +20,28 @@ block content
             .restaurant__info--location
                 svg 
                     use(href='../img/icons.svg#icon-location')
-                a.nb(href='#')
+                a.nb
                     h4= restaurant.location.address
             .restaurant__info--phone
                 svg 
                     use(href='../img/icons.svg#icon-mobile')
-                a.nb(href='tel:3179790634')
+                a.nb(href=`tel:${restaurant.phoneNumber}`)
                     h4= restaurant.phoneNumber
             .restaurant__info--website
                 svg 
                     use(href='../img/icons.svg#icon-sphere')
-                a.nb(href= restaurant.website target="_blank" rel="noopener noreferrer")
-                    h4= restaurant.website 
+                a.nb(href= `http://${restaurant.website}` target="_blank" rel="noopener noreferrer")
+                    h4 Website 
             .restaurant__info--delivery
                 svg 
                     use(href='../img/icons.svg#icon-rocket')
-                a.nb(href= restaurant.delivery.ubereats)
+                a.nb(href= `http://${restaurant.delivery.ubereats}` target='_blank' rel='noopener noreferrer')
                     h4 Uber Eats
-                a.nb(href= restaurant.delivery.doordash)
+                a.nb(href= `http://${restaurant.delivery.doordash}` target='_blank' rel='noopener noreferrer')
                     h4 DoorDash
-                a.nb(href= restaurant.delivery.grubhub)
+                a.nb(href= `http://${restaurant.delivery.grubhub}` target='_blank' rel='noopener noreferrer')
                     h4 GrubHub
-                a.nb(href= restaurant.delivery.postmates)
+                a.nb(href= `http://${restaurant.delivery.postmates}` target='_blank' rel='noopener noreferrer')
                     h4 PostMates
         .restaurant__hours
             svg 
@@ -70,11 +70,6 @@ block content
                 .images 
                     .breakfast 
                         img.group1(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group1(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group1(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group2(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group2(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group2(src='../img/food-image-1.png' alt='Plate 1')
             .restaurant__images--layout
                 h4 Brunch 
                 button.btn--brunch.nb
@@ -83,11 +78,6 @@ block content
                 .images 
                     .brunch 
                         img.group1(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group1(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group1(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group2(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group2(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group2(src='../img/food-image-1.png' alt='Plate 1')
             .restaurant__images--layout
                 h4 Lunch 
                 button.btn--lunch.nb
@@ -96,11 +86,6 @@ block content
                 .images 
                     .lunch 
                         img.group1(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group1(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group1(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group2(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group2(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group2(src='../img/food-image-1.png' alt='Plate 1')
             .restaurant__images--layout
                 h4 Dinner 
                 button.btn--dinner.nb
@@ -109,9 +94,5 @@ block content
                 .images 
                     .dinner 
                         img.group1(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group1(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group1(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group2(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group2(src='../img/food-image-1.png' alt='Plate 1')
-                        img.group2(src='../img/food-image-1.png' alt='Plate 1')
+
 

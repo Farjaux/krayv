@@ -40,7 +40,6 @@ const restaurantSchema = new mongoose.Schema({
   ],
   posts: [
     {
-      slug: String,
       imageFile: { type: String, reqired: true },
       krayv: { type: Number, default: 0 },
       about: {
