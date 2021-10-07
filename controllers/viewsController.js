@@ -41,7 +41,7 @@ exports.getPosts = catchAsync(async (req, res) => {
 exports.getRestaurants = catchAsync(async (req, res) => {
   // 1) Get post data from collection
   const restaurants = await Restaurants.find();
-  console.log(restaurants);
+
   res.status(200).render('feed', {
     restaurants,
   });
@@ -49,7 +49,7 @@ exports.getRestaurants = catchAsync(async (req, res) => {
 
 exports.getFavorites = (req, res) => {
   res.status(200).render('favorites', {
-    title: '| favs',
+    title: '| Favorites',
   });
 };
 
@@ -57,7 +57,7 @@ exports.getRestaurant = catchAsync(async (req, res) => {
   const restaurant = await Restaurant.findOne({ slug: req.params.slug });
 
   res.status(200).render('restaurant', {
-    title: '| restaurant',
+    title: `| ${restaurant.name}`,
     restaurant,
   });
 });

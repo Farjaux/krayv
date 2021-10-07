@@ -1,13 +1,15 @@
 extends base
 
+block append head 
+    script(defer src='/js/feedScript.js')
+    script(src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js')
+    link(href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet')
+
 block content 
-    //- head 
-    //-     script(defer src='/js/feedScript.js')
-    //-     script(src='/js/leaflet.js')
     .overlay.hidden
     main.feed 
         section.post 
-            each restaurant, index in restaurants
+            each restaurant in restaurants
                 each post in restaurant.posts
                     article.post__container(id=`${post.meal}`)
                         a(href=`/restaurant/${restaurant.slug}`)
@@ -24,33 +26,36 @@ block content
 
         .geofilter.hidden
             button.btn--close-modal.geoClose &times;
-            div(id='map')
+            each restaurant in restaurants
+                #map(data-locations=`${JSON.stringify(restaurant.location)}`)
 
-        //- .filters.hidden
-        //-     button.btn--close-modal.filterClose &times;
-        //-     .meal 
-        //-         input.breakfast(type="checkbox" id="breakfast")
-        //-         label(for="breakfast" id="breakfast")
-        //-             span= Breakfast
-        //-         input.breakfast(type="checkbox" id="brunch")
-        //-         label(for="brunch" id="brunch")
-        //-             span= Brunch
-        //-         input.breakfast(type="checkbox" id="lunch")
-        //-         label(for="lunch" id="lunch")
-        //-             span= Lunch
-        //-         input.breakfast(type="checkbox" id="dinner")
-        //-         label(for="dinner" id="dinner")
-        //-             span= Dinner
-        //-     .price 
-        //-         input.price1(type="checkbox" id="price1")
-        //-         label(for="price1" id="price1")
-        //-             span= &dollar;
-        //-         input.price2(type="checkbox" id="price2")
-        //-         label(for="price2" id="price2")
-        //-             span= &dollar;&dollar;
-        //-         input.price3(type="checkbox" id="price3")
-        //-         label(for="price3" id="price3")
-        //-             span= &dollar;&dollar;&dollar;
+        .filters.hidden
+            button.btn--close-modal.filterClose &times;
+            .meal 
+                <input class="breakfast" type="checkbox" id="breakfast">
+                label(for="breakfast" id="breakfast")
+                    <span>Breakfast</span>
+                <input class="brunch" type="checkbox" id="brunch"> 
+                label(for="brunch" id="brunch")
+                    <span>Brunch</span>
+                <input class="lunch" type="checkbox" id="lunch">
+                label(for="lunch" id="lunch")
+                    <span>Lunch</span>
+                <input class="dinner" type="checkbox" id="dinner">
+                label(for="dinner" id="dinner")
+                    <span>Dinner</span>
+            .price 
+                <input class="price1" type="checkbox" id="price1">
+                label(for="price1" id="price1")
+                    <span>&dollar;</span> 
+                <input class="price2" type="checkbox" id="price2"> 
+                label(for="price2" id="price2")
+                    <span>&dollar;&dollar;</span> 
+                <input class="price3" type="checkbox" id="price3">
+                label(for="price3" id="price3")
+                    <span>&dollar;&dollar;&dollar;</span> 
 
     //- FOOTER
     include _footer
+
+    script(src='/js/mapbox.js')

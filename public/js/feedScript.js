@@ -1,3 +1,4 @@
+/* eslint-disable */
 'use strict';
 
 ////////////// FILTERS //////////////////
@@ -14,12 +15,12 @@ const closeFiltersBtn = document.querySelector('.filterClose');
 const overlay = document.querySelector('.overlay');
 
 ////////////// RENDER MAP //////////////////
-const map = L.map('map').setView([43.615, -116.2023], 13);
+// const map = L.map('map').setView([43.615, -116.2023], 13);
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution:
-    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-}).addTo(map);
+// L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//   attribution:
+//     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+// }).addTo(map);
 
 ////////////// GEO FILTERS //////////////////
 const openGeoFilter = function () {
